@@ -42,14 +42,19 @@ En él podemos editar nuestro nombre, organización, web, etc.
 ##**Otros objetivos**  
 Aunque no están indicados exactamente, estos objetivos se piden en si en el desarrollo de esta práctica:  
 
-* Creación de Branch:  
+* **Creación de Branch:**  
 Necesitamos crear un *Branch* o *rama* para subir este primera práctica. Para ello, desde nuestro repositorio, pulsamos el botón ```Branch: Master```, y nos indicará que desde ahí podemos buscar o crear un Branch. Crearemos uno nuevo llamado *hito0*:  
   
 ![img](capturas/c1.PNG)  
 
 Ahora a través de comandos, subimos este archivo a esa rama, para ello utilizamos los siguientes comandos:  
+```git checkout hito0``` Cambiamos a la rama "hito0", originalmente empezamos en "master".  
 ```git add hito0.md``` Añadimos el archivo  
-```git commit -m "closes #1"``` Una descripción de la subida, normalmente se puede indicar con "closes #numero", donde "numero" es el numero de subida.  
-```git push origin hito0``` Indicamos que queremos que se suba el archivo, y que lo haga en esta rama.
+```git commit -a -m "closes #1"``` Una descripción de la subida, normalmente se puede indicar con "closes #numero", donde "numero" es el numero de subida.  
+```git push``` Indicamos que queremos que se suba el archivo.  
+
+* **Repositorio compartido**  
+
+La asignatura cuenta con un repositorio de Github en el que colaboramos todos los alumnos. En primera intancia necesitamos tener una "copia", para ello ejecutamos ```git clone repositorio``` donde "repositorio" es un enlace de dicho repositorio. Si hemos realizado el fork, ahora quedaría hacer el pull request con los cambios que nosotros realicemos.
 
  
