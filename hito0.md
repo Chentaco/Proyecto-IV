@@ -48,13 +48,16 @@ Necesitamos crear un *Branch* o *rama* para subir este primera práctica. Para e
 ![img](capturas/c1.PNG)  
 
 Ahora a través de comandos, subimos este archivo a esa rama, para ello utilizamos los siguientes comandos:  
-```git checkout hito0``` Cambiamos a la rama "hito0", originalmente empezamos en "master".  
+```git checkout -b hito0``` Cambiamos a la rama "hito0", originalmente empezamos en "master".  
 ```git add hito0.md``` Añadimos el archivo  
-```git commit -a -m "closes #1"``` Una descripción de la subida, normalmente se puede indicar con "closes #numero", donde "numero" es el numero de subida.  
-```git push``` Indicamos que queremos que se suba el archivo.  
+```git commit -a -m "closes #0"``` Una descripción de la subida, normalmente se puede indicar con "closes #numero", donde "numero" es el numero de subida.  
+```git push origin hito0``` Indicamos que queremos que se suba el archivo a esta rama. 
 
 * **Repositorio compartido**  
 
-La asignatura cuenta con un repositorio de Github en el que colaboramos todos los alumnos. En primera intancia necesitamos tener una "copia", para ello ejecutamos ```git clone repositorio``` donde "repositorio" es un enlace de dicho repositorio. Si hemos realizado el fork, ahora quedaría hacer el pull request con los cambios que nosotros realicemos.
+La asignatura cuenta con un repositorio de Github en el que colaboramos todos los alumnos. En primera intancia necesitamos tener una "copia", para ello ejecutamos ```git clone repositorio``` donde "repositorio" es un enlace de dicho repositorio. Si hemos realizado el fork, ahora quedaría hacer el pull request con los cambios que nosotros realicemos.  
+
+Bibliografía: [Git SCM, comandos y ayuda con Git](https://git-scm.com/Comandos Git)  
+
 
  
