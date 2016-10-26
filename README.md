@@ -1,9 +1,11 @@
+[![Build Status](https://travis-ci.org/Chentaco/Proyecto-IV.svg?branch=master)](https://travis-ci.org/Chentaco/Proyecto-IV)
+
 # Proyecto-IV
 Repositorio de la asignatura Infraestructura Virtual de la ETSIIT de Granada. El proyecto de la asignatura será realizado junto al proyecto de DAI. 
   
 -------------------------------- 
 
-Información:  
+##Información:  
 
 **Autor**: Ramón Sánchez García  
 **Contacto**: chentaco@correo.ugr.es  
