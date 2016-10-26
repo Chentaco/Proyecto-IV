@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}MOBAgestor: Equipos generados para la siguiente partida{% endblock %}
+
+{% block content %}
+	<p>
+		<center><table border="4">
+  			<tr>
+    			<th>Equipo Nº Uno:</th>
+    			<th>Equipo Nº Dos:</th>
+  			</tr>
+  			<tr>
+    			<td>{{ equipo1.0 }}</td>
+    			<td>{{ equipo2.0 }}</td>
+		  	</tr>
+  			<tr>
+    			<td>{{ equipo1.1 }}</td>
+    			<td>{{ equipo2.1 }}</td>
+  			</tr>
+  			<tr>
+    			<td>{{ equipo1.2 }}</td>
+    			<td>{{ equipo2.2 }}</td>
+  			</tr>
+  			<tr>
+    			<td>{{ equipo1.3 }}</td>
+    			<td>{{ equipo2.3 }}</td>
+  			</tr>
+  			<tr>
+    			<td>{{ equipo1.4 }}</td>
+    			<td>{{ equipo2.4 }}</td>
+  			</tr>
+  			<tr>
+		</table></center>
+	</p>
+{% endblock %}

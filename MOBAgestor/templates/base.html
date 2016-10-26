@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="es">
+<head>
+	<title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+	<h1>MOBAgestor</h1>
+	<h2>Gestiona tus partidas y equipos de tu MOBA favorito</h2>
+	<h3>(Actualizar la página para generar un nuevo equipo aleatorio (5vs5))</h3>
+	{% block content %}{% endblock %}
+	{% block footer %}
+<hr>
+	<p>Proyecto creado para la asignatura de <b>DAI</b> y <b>IV</b> de la <b>ETSIIT</b>, año 2016/2017</p>
+	<p>Universidad de Granda</p>
+	<p>Contacto: <a href="mailto:chentaco@correo.ugr.es?Subject=Proyecto DAI" target="_top">Ramón Sánchez García</a></p>
+	{% endblock %} 
+</body>
+</html>
