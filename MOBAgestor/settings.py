@@ -16,6 +16,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
@@ -38,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'teams',
+    'rest_framework'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -57,7 +59,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-        	'/home/chentaco/Documentos/IV/proyecto/organizadormoba/MOBAgestor/templates',
+		os.path.join(BASE_DIR, 'MOBAgestor/templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -88,7 +90,7 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en-eu'
 
 TIME_ZONE = 'Europe/Madrid'
 
@@ -102,4 +104,5 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_ROOT = 'static/'
+STATIC_URL = 'static/'

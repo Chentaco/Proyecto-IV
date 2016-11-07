@@ -1,5 +1,6 @@
 from django.test import TestCase
-
+from rest_framework import status
+from rest_framework.test import APITestCase
 from teams.models import Team,Jugador
 
 class TeamTestCase(TestCase):
@@ -40,3 +41,29 @@ class JugadorTestCase(TestCase):
 		self.assertEqual(Xpeke.team, tOrigen)
 
 		print("\nTest: Crear jugador e incluirlo en su equipo. Estatus: Superado")
+
+class RutasTeamJSON(APITestCase):
+	def test_listar_teams(self):
+		"""Listar todas los equipos en JSON"""
+		Team.objects.create(nombre="El Tercer Tiempo", ciudad="Granada")
+		Team.objects.create(nombre="La Maceta", ciudad="Peligros")
+
+		response = self.client.get('/teams/')
+		self.assertEqual(response.status_code, status.HTTP_200_OK)
+		self.assertEqual(response['Content-Type'], 'application/json')
+
+		print("JSON: Ruta '/json/teams/' consultada correctamente")
+
+	def test_detalle_team(self):
+		"""Testea el listado de cada equipo individualmente en JSON"""
+		Team.objects.create(nombre="El Tercer Tiempo", ciudad="Granada")
+		Team.objects.create(nombre="La Maceta", ciudad="Peligros")
+		
+		teams = Team.objects.values_list('id',flat=True)
+		for i in teams:
+			response = self.client.get('/teams/'+str(i)+'/')
+			self.assertEqual(response.status_code, status.HTTP_200_OK)
+			self.assertEqual(response['Content-Type'], 'application/json')
+			print("Ruta /teams/" + str(i) + "/ consultada correctamente")
+		
+		print("JSON: Rutas de cada equipo consultado correctamente.")
