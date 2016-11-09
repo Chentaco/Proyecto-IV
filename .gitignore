@@ -1,3 +1,10 @@
+# Python cache
+__pycache__
+
+# Ignored sqlite databases
+*.sqlite3
+
+
 # Build and Release Folders
 bin/
 bin-debug/
