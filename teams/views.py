@@ -26,7 +26,7 @@ def formar_equipos(request):
 	jugadores = len(componentes)
 
 	assert jugadores != 0
-	print("Test superado con éxito")
+	print("Test superado con exito")
 	
 	equipo1 = componentes[0:int(jugadores/2)]
 
