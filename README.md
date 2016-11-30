@@ -74,6 +74,22 @@ Para el despliegue manual en Heroku he creado el siguiente botón:
   
 Toda esta configuración relacionado con el **PaaS** está descrita y documentada en la parte de ejercicios del **Tema 3**, donde utilicé el propio proyecto para realizar los ejercicios de dicho tema y describen detalladamente como he realizado cada paso. Puedes consultarlos en el [siguiente enlace](https://github.com/Chentaco/EjerciciosIV/blob/master/tema3.md). 
 
+-------------------------------  
 
+##Contenedores
+
+Otro de los objetivos fue el uso de contenedores, pequeñas "máquinas virtuales" donde ejecutar nuestro proyecto. Dichos contenedores se crean con el SO que nosotros queramos, (en mi caso elegí la última de ubuntu), donde va nuestra aplicación dentro de ella. Existen varios métodos, como por ejemplo Docker, el cual fue el que más enfásis le puse en esta parte de la práctica.  
+
+Además subimos nuestro proyecto al repositorio de contenedores de [Docker](). Dicha web permite lanzar nuestro contenedores online, si disponemos de algún servicio de "nodes", como dice la propia web (Amazon, Azure, ...). Actualmente no dispongo de cuenta en ningún servicio, por lo que no se puede ver online el contenedor.  
+
+Puedes visitar mi respositorio Docker en el siguiente enlace:  
+
+[https://cloud.docker.com/app/chentaco/repository/list/](https://cloud.docker.com/app/chentaco/repository/list/)  
+
+Además adjunto el siguiente [script](), incluido en el repositorio del Proyecto, que permite descargar y arrancar el contenedor de mi proyecto automáticamente. El único problema es que el proyecto ha de arrancarse manualmente, asi que una vez arrancado el contenedor, ejecutamos:  
+
+```python /Proyecto-IV/manage.py runserver 0.0.0.0:5500```  
   
-
+Ahora necesitamos ver que ip tiene asignada nuestro proyecto, para ello, en el contenedor, miramos la ip de este con el comando ```ip address```, utilizando ella en el navegador, junto el puerto **5500** que es el asignado.
+  
+  
