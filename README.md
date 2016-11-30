@@ -86,7 +86,7 @@ Puedes visitar mi respositorio Docker en el siguiente enlace:
 
 [https://cloud.docker.com/app/chentaco/repository/list/](https://cloud.docker.com/app/chentaco/repository/list/)  
 
-Además adjunto el siguiente [script](), incluido en el repositorio del Proyecto, que permite descargar y arrancar el contenedor de mi proyecto automáticamente. El único problema es que el proyecto ha de arrancarse manualmente, asi que una vez arrancado el contenedor, ejecutamos:  
+Además adjunto el siguiente [script](), incluido en el repositorio del Proyecto, que permite descargar y arrancar el contenedor de mi proyecto automáticamente. Para ejecutarlo, darle permisos (```chmod 777 scriptdocker.sh```) y ejecutarlo (```./scriptdocker.sh```). El único problema es que el proyecto ha de arrancarse manualmente, asi que una vez arrancado el contenedor, ejecutamos:  
 
 ```python /Proyecto-IV/manage.py runserver 0.0.0.0:5500```  
   
