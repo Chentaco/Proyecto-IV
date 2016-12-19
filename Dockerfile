@@ -26,5 +26,4 @@ RUN cd Proyecto-IV/ && pip install -r requirements.txt
 RUN cd Proyecto-IV/ && python manage.py migrate
 
 #Puerto
-
 EXPOSE 8000
