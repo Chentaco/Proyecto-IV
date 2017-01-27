@@ -1,0 +1,64 @@
+{% extends 'match_teams/base.html' %}
+
+
+    {% block title %}{{ team_name }}{% endblock %}
+    
+    {% block head_block %}
+    	<script>
+        $(document).ready(function(){
+        	$('.megusta').click(function(){
+    			var jugid;
+    			jugid =  $(this).attr("data-jugid");
+    			$.get("{% url 'megusta_jugador' %}", {jugador_id: jugid}, function(data){
+	    				$('#contador_megusta'+jugid).html(data);
+	    				//alert('#contador_megusta'+jugid);
+	    				$('button[data-jugid='+jugid+']').hide();
+        			});
+			});
+		});
+    	</script>    	
+    {% endblock %}
+
+    {% block body_block %}
+        <div class="page-header">
+            <h1>MOBAGestor</h1>
+            <h2>{{ team }}</h2>
+        </div>  
+            {% if team %}
+                
+                {% if jugadores %}
+	                <ul>
+	                    {% for jugador in jugadores %}
+	                    	<li>{{ jugador }}</li></b> 
+				<strong id="contador_megusta{{ jugador.id }}"><font color="blue">{{jugador.megusta}}</font></strong> votos positivos.
+				{% if user.is_authenticated %}
+				<button class="btn btn-default btn-xs megusta" data-jugid="{{ jugador.id }}">Me gusta</button>
+				{% endif %} 
+	                    {% endfor %}                    
+	                </ul>
+
+                {% else %}
+                    <strong>No hay jugadores registrados en esta team.</strong>
+                {% endif %}
+				
+		{% if user.is_authenticated %}
+
+                    <a href="/match/teams/{{ team.slug }}/add_jugador/" class="list-group-item">Insertar nuevo Jugador</a><br />
+
+                {% else %}
+                	<h2><i>Es necesario estar identificado como usuario para votar y añadir jugadores</i></h2><br />
+                {% endif %}
+                
+                <p>Dirección: {{ team.direccion }} </p>
+
+                <p>Visitas: {{ team.visitas }}</p>
+
+                {% load easy_maps_tags %}
+
+		<p>Mapa: </p>
+                {% easy_map team.direccion 400 400 %}                
+            {% else %}
+               El equipo {{ team_name }} no existe
+            {% endif %}
+    {% endblock %}
+</html>

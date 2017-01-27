@@ -1,3 +1,9 @@
 from django.contrib import admin
 
-# Register your models here.
+from teams.models import Team, Jugador
+
+class TeamAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug':('nombre',)}
+
+admin.site.register(Team, TeamAdmin)
+admin.site.register(Jugador)

@@ -1,0 +1,96 @@
+{% extends 'match_teams/base.html' %}
+
+{% load staticfiles %}    
+
+    {% block head_block %}
+        <script src="http://code.highcharts.com/highcharts.js"></script>
+
+        <script>
+        $(document).ready(function(){
+            $.ajax({
+                url: "{% url 'reclama_datos' %}",
+                type: 'get',                        
+                success: function(datos) {
+                    Visualiza_datos (datos);  
+                },
+                failure: function(datos) { 
+                    alert('Ha ocurrido un problema en la visualización de visitas');
+                }
+            });
+        
+
+            function Visualiza_datos (datos) {
+                var team = [];
+                var visita = [];
+
+                team = datos['teams'];
+                visita = datos['visitas'];
+                
+                $('#container').highcharts({
+                    chart: {
+                        type: 'bar'
+                    },
+                    title: {
+                        text: 'Top 5 Teams'
+                    },
+                    xAxis: {
+                        categories: team
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'Visitas a cada team'
+                        }
+                    },
+                    series: [{
+                        name: 'Visitas',
+                        data: visita
+                    }],
+                });
+            };
+        });
+        </script>
+    {% endblock %}
+    
+    {% block body_block %}
+        <div class="page-header">
+            <h1>MOBAGestor</h1>
+            <h2>Inicio</h2>
+        </div>
+            <div class="row placeholders">
+                <div class="col-xs-12 col-sm-6 placeholder">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Equipos</h4>
+                        </div>
+                    </div>
+                        {% if teams %}
+                        	<ul class="list-group">
+                        		{% for team in teams %}
+                        		<li class="list-group-item"><a href="/match/teams/{{ team.slug }}">{{ team }}</a></li>
+                        		{% endfor %}
+                        	</ul>
+                    	{% else %}
+                    		<strong>No hay ningun equipo registrado.</strong>
+                		{% endif %}
+                </div>
+                <div class="col-xs-12 col-sm-6 placeholder">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Top 10 Jugadores</h4>
+                        </div>
+                    </div>
+
+                    {% if jugadores %}
+                        <ul class="list-group">
+                            {% for jugador in jugadores %}
+                             <li class="list-group-item"><a href="/match/teams/{{ jugador.team.slug }}">{{ jugador }} ({{ jugador.team }})-> 				     {{ jugador.megusta }} votos</a></li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <strong>No hay jugadores</strong>
+                    {% endif %}
+                </div>
+            <div id="container" style="height: 300px"></div> 
+    {% endblock %}
+
+</html>

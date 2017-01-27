@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+
+    <title>MOBAGESTOR - {% block title %}Gestina tus equipos de tus mobas favoritos{% endblock %}</title>
+
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+    <script>
+    	$(document).ready(function(){
+   			//modificar tamaño letra
+   			original = $('body').css('font-size');
+   			$('#fuente_grande').click(function(){
+   				actual = parseFloat($('body').css('font-size')) * 1.1;
+   				if(actual<=25)
+   					$('body').css('font-size', actual);
+   			});
+   			$('#fuente_pequenha').click(function(){
+   				actual = parseFloat($('body').css('font-size')) * 0.9;
+   				if(actual>=7)
+   					$('body').css('font-size', actual);
+   			});
+   			$('#fuente_normal').click(function(){   				
+   				$('body').css('font-size', original);
+   			});
+		});
+    </script>
+
+    {% block head_block %}{% endblock %}
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+                    {% if user.is_authenticated %}
+			<li><a href="">Bienvenido {{ user.username }}</li></a>
+                        <li><a href="{% url 'auth_logout' %}">Cerrar sesión</a></li>
+                    {% else %}
+                        <li><a href="{% url 'registration_register' %}">¿No tienes cuenta? Registrate</a></li>
+                        <li><a href="{% url 'auth_login' %}">Inicia Sesión</a></li>
+                    {% endif %}   
+
+              </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+		<h5><li>Menú</li></h5>
+                <div class="list-group" id="list-group">
+                    <a href="{% url 'index' %}" class="list-group-item">Inicio</a>
+                    <a href="/admin" class="list-group-item">Zona Administrativa</a>
+                    <a href="{% url 'about' %}" class="list-group-item">Informacion</a>
+		</div>
+		<h5><li>Visualización</li></h5>
+		<div>
+    		    <button id="fuente_grande" class="list-group-item">Aumentar Tamaño</button> 
+	            <button id="fuente_pequenha" class="list-group-item">Disminuir Tamaño</button>
+	            <button id="fuente_normal" class="list-group-item">Tamaño Normal</button>
+		</div>
+            {% block side_block %}{% endblock %}
+
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+           <div>
+                {% block body_block %}{% endblock %}
+
+  		<footer class="col-sm-12 text-center">
+    			{% block footer %}{% endblock %}
+  		</footer>
+            </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+    <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+
+</html>

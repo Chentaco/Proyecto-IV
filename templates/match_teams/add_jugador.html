@@ -1,0 +1,29 @@
+{% extends 'match_teams/base.html' %}
+
+    {% block title %}{{ team_name }}{% endblock %}
+
+    {% block body_block %}
+        <div class="page-header">
+            <h1>MOBAGestor</h1>
+            <h2>{{ team }}</h2>
+        </div> 
+
+        <h3>Inserta un jugador</h3>
+
+        <form id="jugador_form" method="post" action="/match/teams/{{team.slug}}/add_jugador/">
+
+            {% csrf_token %}
+            {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+            {% endfor %}
+
+            {% for field in form.visible_fields %}
+                {{ field.errors }}
+                {{ field.help_text }}
+                {{ field }}
+            {% endfor %}
+
+            <input type="submit" name="submit" value="Crear Jugador" />
+        </form>
+    {% endblock %}
+    

@@ -17,12 +17,17 @@ RUN sudo apt-get -y install libpq-dev
 RUN sudo apt-get -y install python-pip
 RUN sudo pip install --upgrade pip
 
+# Editor de textos en caso de necesitarlo
+
+RUN sudo apt-get -y install nano
+
 #Descargar aplicacion
 RUN sudo apt-get -y install git
 RUN sudo git clone https://github.com/Chentaco/Proyecto-IV.git
 
 #Instalar aplicacion
 RUN cd Proyecto-IV/ && pip install -r requirements.txt
+RUN cd Proyecto-IV/ && python manage.py syncdb --noinput
 RUN cd Proyecto-IV/ && python manage.py migrate
 
 #Puerto

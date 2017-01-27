@@ -1,6 +1,5 @@
-
 from rest_framework import serializers
-from teams.models import Team
+from .models import Team
 
 
 class TeamSerializer(serializers.Serializer):
@@ -23,3 +22,4 @@ class TeamSerializer(serializers.Serializer):
 
     	instance.save()
     	return instance
+
