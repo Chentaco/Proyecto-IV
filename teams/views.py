@@ -75,9 +75,9 @@ def add_jugador(request, team_name):
                 jugador.save()
                 return HttpResponseRedirect('/match/teams/%s/' % team.slug)
             else:
-                print form.errors
+                print (form.errors)
         else:
-            print 'El team '+team_name+' no existe. No se puede insertar un jugador en un team inexistente.'
+            print ('El team '+team_name+' no existe. No se puede insertar un jugador en un team inexistente.')
     else:    
         form = JugadorForm()
 
