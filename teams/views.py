@@ -109,7 +109,7 @@ def megusta_jugador(request):
     		jug.megusta = megusta
     		jug.save()
 	
-	return HttpResponse(megusta)
+    return HttpResponse(megusta)
 	
 class JSONResponse(HttpResponse):
     """
