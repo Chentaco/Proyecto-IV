@@ -92,4 +92,13 @@ Además adjunto el siguiente [script](https://github.com/Chentaco/Proyecto-IV/bl
   
 Ahora necesitamos ver que ip tiene asignada nuestro proyecto, para ello, en el contenedor, miramos la ip de este con el comando ```ip address```, utilizando ella en el navegador, junto el puerto **5500** que es el asignado.
   
-  
+-------------------------------
+
+##IaaS  
+
+Finalmente se ha desplegado la aplicación en un servicio como Azure, la cual puede ser visualizada en el siguiente enlace.  
+mobagestor.cloudapp.net  
+
+Adicionalmente se dispone de un script para poder desplegar la aplicación en un IaaS, el cual se encarga de instalar todas las dependencias y herramientas necesarias, instalar y lanzar Vagrant para configurar la máquina de Azure y utilizar Ansible para poder provisionar de las fuentes necesarias y requisitos de la aplicación. Requieren modificar algunos parámetros, los cuales se explican en su documentación oficial.
+
+Puedes visitar toda la información detallada [en el siguiente enlace](https://github.com/Chentaco/Proyecto-IV/blob/master/doc/hito5.md).  
