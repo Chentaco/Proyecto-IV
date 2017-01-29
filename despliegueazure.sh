@@ -15,4 +15,4 @@ export ANSIBLE_HOSTS=~/ansible_hosts
 
 
 #Despliegue de la app
-fab -p 'ramonadmin' -H vagrant@mobagestor.cloudapp.net ejecutar_app
+fab -p 'chentaco' -H vagrant@mobagestor.cloudapp.net ejecutar_app
