@@ -48,7 +48,7 @@ Nos dará un enlace donde, al acceder a ese sitio, descargará un archivo con di
 azure account import ./*.publishsettings
 ~~~  
 
-![img](import)
+![img](https://github.com/Chentaco/EjerciciosIV/blob/master/capturas/hito5_c0.PNG)
 
 **NOTA**: Tras el import, es importante borrar o al menos que nacie acceda a dichos archivos. Contiene información confidencial.  
 
@@ -64,7 +64,7 @@ openssl x509 -inform pem -in azurevagrant.key -outform der -out azurevagrant.cer
 - Subir el certificado (fichero .cer) a Azure:  
 Accedemos a https://manage.windowsazure.com (el portal antiguo) y en el menú Configuración, en la pestaña Certificados de administración, está la opción para subir nuestro certificado:  
 
-![img](subiendo nuestro fichero)  
+![img](https://github.com/Chentaco/EjerciciosIV/blob/master/capturas/hito5_c1.PNG)  
 
 - Crear el fichero .pem, el cual contiene la clave privada como la pública:
 
