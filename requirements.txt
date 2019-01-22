@@ -16,14 +16,14 @@ Flask-GoogleMaps==0.2.4
 flask-paginate==0.4.5
 Flask-Shelve==0.1.1
 geopy==1.11.0
-gunicorn==19.3.0
+gunicorn>=19.5.0
 itsdangerous==0.24
 Jinja2==2.0.0
 MarkupSafe==0.23
 oauthlib==2.0.1
 Pillow==3.4.2
 python-decouple==3.0
-requests==2.2.1
+requests>=2.20.0
 requests-oauthlib==0.7.0
 six==1.10.0
 static3==0.7.0
