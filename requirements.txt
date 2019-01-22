@@ -11,7 +11,7 @@ django-toolbelt==0.0.1
 django-widget-tweaks==1.4.1
 djangorestframework==3.3.1
 feedparser==5.2.1
-Flask==0.12
+flask>=0.12.3
 Flask-GoogleMaps==0.2.4
 flask-paginate==0.4.5
 Flask-Shelve==0.1.1
